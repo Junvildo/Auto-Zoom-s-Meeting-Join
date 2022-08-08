@@ -46,7 +46,6 @@ def job(Jobs, index):
     time.sleep(DelayTime)
     pyAu.write(str(Jobs.loc[index, 'RoomPassword']))
     pyAu.press('enter')
-    DoneNoti(Jobs, index, True)
 
 
 def JobCall(Jobs, index, day):
