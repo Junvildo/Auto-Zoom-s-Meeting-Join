@@ -72,18 +72,20 @@ def JobCall(Jobs, index, day):
             str(Jobs.loc[index, 'Time'])).do(job, Jobs, index)
 
 
-num = 0
-Today = datetime.now().strftime('%A')
-TodayJobs = JobParting(Today)
-if AvailableJobs(Jobs=TodayJobs):
-    while num < len(TodayJobs):
-        JobCall(Jobs=TodayJobs, index=num, day=Today)
-        num += 1
-else:
-    print('Not thing to do today. Quiting Now...')
-    quit()
+
+if __name__ == "__main__":
+    num = 0
+    Today = datetime.now().strftime('%A')
+    TodayJobs = JobParting(Today)
+    if AvailableJobs(Jobs=TodayJobs):
+        while num < len(TodayJobs):
+            JobCall(Jobs=TodayJobs, index=num, day=Today)
+            num += 1
+    else:
+        print('Not thing to do today. Quiting Now...')
+        quit()
 
 
-while 1:
-    schedule.run_pending()
-    time.sleep(1)
+    while 1:
+        schedule.run_pending()
+        time.sleep(1)
