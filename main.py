@@ -6,7 +6,6 @@ import pandas as pd
 import pyautogui as pyAu
 from datetime import datetime
 import pyperclip
-import winsound
 
 ScheduleFile = (r'')  # Your CSV File Path
 # Your Zoom Path
@@ -30,11 +29,6 @@ def AvailableJobs(Jobs):
         return True
 
 
-def DoneNoti(Jobs, index, State):
-    if State:
-        print(Jobs.loc[index, 'Class']+' done')
-        winsound.PlaySound(r'C:\Windows\Media\Windows Background.wav',
-                           winsound.SND_FILENAME | winsound.SND_NOWAIT)
 
 
 def job(Jobs, index):
