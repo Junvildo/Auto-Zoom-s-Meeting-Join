@@ -7,7 +7,8 @@ pipeline {
     triggers {
         pollSCM '* * * * *'
     }
-        stage('Build') {
+        stage('Build') 
+            steps {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
                     sh 'pip install --user -r requirements.txt'
                 }
