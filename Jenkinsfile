@@ -9,12 +9,10 @@ pipeline {
     }
     stages {
         stage('Build') {
-            steps {
-                echo "Building.."
-                sh '''
-                pip install --target ${env.WORKSPACE} -r requirements.txt
-                '''
-            }
+                withEnv(["HOME=${env.WORKSPACE}"]) {
+                    sh 'pip install --user -r requirements.txt'
+                    sh 'python WebChecker.py'
+                }
         }
         stage('Test') {
             steps {
