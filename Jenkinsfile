@@ -7,6 +7,7 @@ pipeline {
     triggers {
         pollSCM '* * * * *'
     }
+    stages {
         stage('Build') 
             steps {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
