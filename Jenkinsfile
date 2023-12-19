@@ -8,11 +8,13 @@ pipeline {
         pollSCM '* * * * *'
     }
     stages {
-        stage('Build') 
+        stage('Build') {
             steps {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
                     sh 'pip install --user -r requirements.txt'
                 }
+                echo "Hallo"
+            }
         }
         stage('Test') {
             steps {
