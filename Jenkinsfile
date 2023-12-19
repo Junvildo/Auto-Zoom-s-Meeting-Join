@@ -7,13 +7,11 @@ pipeline {
     triggers {
         pollSCM '* * * * *'
     }
-    stages {
         stage('Build') {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
                     sh 'pip install --user -r requirements.txt'
                     sh 'python WebChecker.py'
                 }
-        }
         stage('Test') {
             steps {
                 echo "Testing.."
