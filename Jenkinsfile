@@ -11,6 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
+                    sh 'pip3 install --upgrade pip'
                     sh 'pip install --user -r requirements.txt'
                 }
                 echo "Hallo"
